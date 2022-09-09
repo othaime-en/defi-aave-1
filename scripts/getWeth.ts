@@ -1,6 +1,6 @@
 import { getNamedAccounts, ethers } from 'hardhat';
 
-async function main() {
+export async function getWeth() {
   const deployer = (await ethers.getSigners())[0];
   const iWeth = await ethers.getContractAt(
     'IWeth',
@@ -15,11 +15,11 @@ async function main() {
   console.log(`Got ${iWethBalance.toString()} of weth!`);
 }
 
-main()
-  .then(() => {
-    console.log('Finished getting WETH!');
-  })
-  .catch(err => {
-    console.error(err.message);
-    process.exit(1);
-  });
+// getWeth()
+//   .then(() => {
+//     console.log('Finished getting WETH!');
+//   })
+//   .catch(err => {
+//     console.error(err.message);
+//     process.exit(1);
+//   });

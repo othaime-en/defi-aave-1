@@ -1,11 +1,13 @@
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/src/signers';
 import * as hre from 'hardhat';
 import { ethers } from 'hardhat';
+import { getWeth} from "./getWeth"
 import { BigNumber } from 'ethers';
 
 async function main() {
   const deployer = (await ethers.getSigners())[0];
-  await hre.run('run', { script: './scripts/getWeth.ts' });
+  //await hre.run('run', { script: './scripts/getWeth.ts' });
+  await getWeth();
 
   const lendingPool = await getLendingPool(deployer);
 
